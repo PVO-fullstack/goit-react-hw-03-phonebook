@@ -76,12 +76,10 @@ export class App extends Component {
         <ContactForm onSubmit={this.handleSubmitForm} />
         <Title>Contacts</Title>
         <Filter value={this.state.filter} onChange={this.changeFilter} />
-        <ContactList>
-          <ContactItem
-            visibleContacts={visibleContacts}
-            onDeleteContact={this.handleDeleteContact}
-          />
-        </ContactList>
+        <ContactList
+          visibleContacts={visibleContacts}
+          onDeleteContact={this.handleDeleteContact}
+        />
       </div>
     );
   }

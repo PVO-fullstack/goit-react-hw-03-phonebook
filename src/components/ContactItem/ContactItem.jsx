@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Li, Span } from './ContactItem.styled';
+import { Button, Span } from './ContactItem.styled';
 
-export const ContactItem = ({ visibleContacts, onDeleteContact }) => {
-  return visibleContacts.map(contact => (
-    <Li key={contact.id}>
-      <Span>{contact.name}: </Span>
-      <Span>{contact.number}</Span>
-      <Button onClick={() => onDeleteContact(contact.id)}>Delete</Button>
-    </Li>
-  ));
+export const ContactItem = ({ id, name, number, onDeleteContact }) => {
+  return (
+    <>
+      <Span>{name}: </Span>
+      <Span>{number}</Span>
+      <Button onClick={() => onDeleteContact(id)}>Delete</Button>
+    </>
+  );
 };
 
 ContactItem.propTypes = {
-  visibleContacts: PropTypes.array.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
